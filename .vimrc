@@ -52,8 +52,11 @@ filetype off
 filetype plugin indent on
 syntax on
 
-"show columns  etc.
+"Show relative line numbers, but on current line show absolute number
+set relativenumber
 set number
+
+"show columns  etc.
 set tw=79
 set nowrap
 set fo-=t
