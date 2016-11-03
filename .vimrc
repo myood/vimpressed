@@ -11,6 +11,12 @@ set clipboard=unnamed
 set bs=2
 set mouse=r
 
+"accept capital letters as some commands
+:command! W w
+:command! Q q
+:command! Sh sh
+:command! SH sh
+
 "leader key is now ,
 let mapleader = ","
 
@@ -101,6 +107,7 @@ autocmd FileType c,cpp,objc ClangFormatAutoEnable
 let g:clang_format#style_options = {
             \ "BasedOnStyle" : "Mozilla",
             \ "BreakBeforeBraces" : "Allman",
+            \ "IndentWidth" : "4",
             \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C++ code
