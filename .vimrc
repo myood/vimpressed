@@ -9,7 +9,7 @@ set clipboard=unnamed
 
 "normal backspace and use mouse
 set bs=2
-set mouse=a
+set mouse=r
 
 "leader key is now ,
 let mapleader = ","
@@ -95,3 +95,16 @@ set laststatus=2
 set t_Co=256
 set background=dark
 colorscheme molokai
+
+"ClangFormat - auto format on buffer write
+autocmd FileType c,cpp,objc ClangFormatAutoEnable
+let g:clang_format#style_options = {
+            \ "BasedOnStyle" : "Mozilla",
+            \ "BreakBeforeBraces" : "Allman",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
